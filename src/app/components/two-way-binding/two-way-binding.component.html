@@ -1,0 +1,10 @@
+<div class="class">
+    <h2>two way</h2>
+    <form action="">
+        <input type="text" placeholder="Digite seu nome" name="name" id="" [(ngModel)]="name">
+        <input type="submit" value="Enviar">
+    </form>
+    <div *ngIf="name != ''">
+        <p>O nome é {{name}}</p>
+    </div>
+</div>

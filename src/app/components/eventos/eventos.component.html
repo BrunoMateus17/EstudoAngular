@@ -1,0 +1,9 @@
+<div class="class">
+    <p *ngIf="show">exibindo mensagem</p>
+    <button (click)="showMessage()">clique em mim</button>
+    <div>
+        <input (keyup)="showValue($event,'teste')">
+        <span>{{value}}</span>
+    </div> 
+   
+</div>

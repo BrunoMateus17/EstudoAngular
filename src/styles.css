@@ -1,0 +1,10 @@
+body{
+    padding-bottom: 500px;
+    margin: 0 !important;
+}
+
+.class{
+    border-bottom:1px solid red;
+    padding: 2em;
+    margin-bottom: 1em;
+}
