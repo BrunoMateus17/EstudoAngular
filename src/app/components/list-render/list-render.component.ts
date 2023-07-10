@@ -7,20 +7,21 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./list-render.component.css']
 })
 export class ListRenderComponent {
-  constructor(private listService: ListService){}
+  constructor(private listService: ListService){
+    this.getAnimals();
+  }
   animalDetails = "";
-  animals:Animal[] = [
-    {name:"Turca",type:"Dog",age:2},
-    {name:"Tom",type:"cat",age:2},
-    {name:"Frida",type:"dog",age:2},
-    {name:"ziggy",type:"tiger",age:2}
-  ];
+  animals:Animal[] = [];
 
   showAge(animal:Animal): void{
     this.animalDetails = "O pet " + animal.name + " tem " + animal.age + " anos";
   }
 
   removeAnimal(animal:Animal){
-    this.animals = this.listService.remove(this.animals,animal)
+    this.animals = this.animals.filter(value=> value.name != animal.name);
+    this.listService.remove(animal.id).subscribe();
+  }
+  getAnimals():void{
+    this.listService.getAll().subscribe((animals) => (this.animals = animals));
   }
 }
